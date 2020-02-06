@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Set;
+
 import java.util.Spliterator;
-import java.util.TreeSet;
 
 public class CarMethods {
 	static Scanner scnr = new Scanner(System.in);
@@ -52,17 +51,18 @@ public class CarMethods {
 	public static String magic(ArrayList<Car> cars, String response) {
 		boolean loop = true;
 		while (loop) {
-		for (Car car : cars) {
-			if (car.getModel().equalsIgnoreCase(response)) {
-				System.out.println(car.toString());
-				return response;
-			}
+			for (Car car : cars) {
+				if (car.getModel().equalsIgnoreCase(response)) {
+					System.out.println(car.toString());
+					return response;
+				}
 
+			}
+			System.out.println("We don't carry that model.");
+			System.out.println("Would you please enter another option.");
+			response = scnr.nextLine();
 		}
-		System.out.println("We don't carry that model.");
-		System.out.println("Would you please enter another option.");
-		response = scnr.nextLine();
-		} return "This didn't work.";
+		return "This didn't work.";
 	}
 
 	public static ArrayList<Car> getACar(ArrayList<Car> cars) {
@@ -75,12 +75,13 @@ public class CarMethods {
 		String userResponse2 = scnr.nextLine();
 		if (userResponse2.equalsIgnoreCase("yes")) {
 			cars = (magic2(cars, userResponse));
-		} return cars;
+		}
+		return cars;
 	}
-	
+
 	public static ArrayList<Car> magic2(ArrayList<Car> cars, String response) {
 		for (Car car : cars) {
-			if (car.getModel().equals(response)) {
+			if (car.getModel().equalsIgnoreCase(response)) {
 				cars.remove(car);
 				System.out.println();
 				System.out.println("Excellent!  Our finance department will be in touch shortly.");

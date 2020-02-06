@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Spliterator;
+
 
 public class UsedCarApp {
 
